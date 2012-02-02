@@ -1,0 +1,31 @@
+! Use URxvt or Rxvt to set res for any *rxvt
+! Use rxvt to set res only for rxvt
+! Use urxvt to set res only for urxvt
+
+Rxvt.scrollBar:         false
+Rxvt.background:        black
+Rxvt.foreground:        grey
+Rxvt.font:              terminus-12
+Rxvt.saveLines:         10240
+! below line is to "fix" colors in vim
+Rxvt.termName:          rxvt
+
+# do not scroll if going back
+Rxvt.scrollTtyOutput:   false
+Rxvt.scrollWithBuffer:  true
+Rxvt.scrollTtyKeypress: true
+
+! Unreadable blue
+!! Debian (old) solution
+!Rxvt.color4:            DodgerBlue1
+!Rxvt.color12:           SteelBlue1
+!! XTerm solution
+Rxvt.color4:            blue2
+Rxvt.color12:           rgb:5c/5c/ff
+
+XTerm*scrollBar:        false
+XTerm*background:       black
+XTerm*foreground:       grey
+XTerm*font:             terminus-12
+XTerm*saveLines:        10240
+!XTerm*termName:         xterm

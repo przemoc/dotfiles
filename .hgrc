@@ -1,0 +1,13 @@
+[alias]
+show = log -pr
+
+[extensions]
+hgext.bookmarks =
+hgext.convert =
+hggit = /usr/share/pyshared/hgext/git
+
+[git]
+intree = 1
+
+[ui]
+username = Przemysław Pawełczyk <przemoc@gmail.com>

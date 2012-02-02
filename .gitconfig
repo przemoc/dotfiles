@@ -1,0 +1,67 @@
+[user]
+	name = Przemyslaw Pawelczyk
+	email = przemoc@gmail.com
+[color]
+	ui = true
+[core]
+	autocrlf = false
+[sendemail]
+	smtpserver = /usr/bin/esmtp
+[alias]
+	for-each-ref = for-each-ref
+	rev-list = rev-list
+	rev-parse = rev-parse
+	symbolic-ref = symbolic-ref
+	update-ref = update-ref
+
+	alt    = "!$(git var GIT_EDITOR) $(git rev-parse --git-dir)/objects/info/alternates"
+	br     = branch -v
+	bv     = branch -vv
+	ba     = branch -av
+	bn     = !git symbolic-ref -q HEAD | sed s,^refs/heads/,,
+	ci     = commit
+	ca     = commit --amend
+	cad    = "!f() { GIT_COMMITTER_DATE=\"$(git log -1 --format=format:'%ai')\" git commit --amend \"$@\"; }; f"
+	ch     = diff --cached
+	co     = checkout
+	cos    = count-objects
+	df     = diff
+	db     = diff -U10
+	dbb    = diff -U100
+	dw     = "!f() { GIT_PAGER='less -+$LESS -R' git diff --color-words \"$@\"; }; f"
+	dc     = diff --cached
+	edit   = "!f() { GIT_EDITOR=\"sed -i 1s/pick/edit/\" git rebase -i $(git rev-parse \"$1\")~; }; f"
+	fix    = "!f() { git commit -m\"fixup! $(git log -1 --pretty=%s $(git rev-parse \"$1\"))\"; }; f"
+	fixed  = rebase -i --autosquash
+	fixup  = commit --amend -C HEAD
+	last   = "!f() { B=\"$(git bn)\"; git log -p --reverse ${1:-${B:-HEAD}}@{1}..${1:-${B:-HEAD}}@{0}; }; f"
+	lf     = log --format=fuller --date=iso8601
+	lo     = log
+	lp     = log -p
+	k      = !gitk
+	mt     = mergetool
+	pick   = cherry-pick
+	qs     = !echo staged: && git diff --cached --name-status && echo unstaged: && git diff --name-status
+	rb     = rebase
+	rc     = rebase --continue
+	ri     = rebase -i
+	rmrem  = !git ls-files --deleted -z | xargs -0 git rm --
+	size   = "!du -s $(git rev-parse --git-dir)"
+	st     = status -uno
+	sta    = status
+	sw     = show
+	sww    = show --color-words
+	slc    = log HEAD@{1}..HEAD@{0} --reverse --stat -p
+	ts     = !git for-each-ref --format='%(taggerdate:raw)%(committerdate:raw) %(refname:short)' refs/tags | awk '{if (NF==3) print($1-(($2/100)*3600),$3)'\"";\""' else print($1)}' | sort -n
+	wc     = whatchanged
+	wip    = commit -m wip
+	wn     = log --reverse ORIG_HEAD..HEAD
+# Scott Chacon
+	lol    = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola   = log --graph --decorate --pretty=oneline --abbrev-commit --all
+# Peter Collingbourne <peter@pcc.me.uk>
+	svnmu  = "!f() { git fetch $1 && git update-ref refs/remotes/git-svn $1/master && git svn fetch }; f"
+
+[pack]
+	window = 256
+	window-memory = 2g

@@ -22,10 +22,16 @@
 	bn     = !git symbolic-ref -q HEAD | sed s,^refs/heads/,,
 	ci     = commit
 	ca     = commit --amend
+	caa    = commit --amend -a
 	cad    = "!f() { GIT_COMMITTER_DATE=\"$(git log -1 --format=format:'%ai')\" git commit --amend \"$@\"; }; f"
+	cacd   = "!f() { DATE=\"$(git log -1 --format=format:'%ci')\"; GIT_COMMITTER_DATE=\"$DATE\" git commit --amend --date=\"$DATE\" \"$@\"; }; f"
+	camd   = "!f() { DATE=\"$(date -R -d \"$*\")\"; GIT_COMMITTER_DATE=\"$DATE\" git commit --amend --date=\"$DATE\"; }; f"
 	ch     = diff --cached
 	co     = checkout
 	cos    = count-objects
+	cup    = commit -a
+	dcp    = diff -C10 --find-copies-harder
+	d      = diff --no-index
 	df     = diff
 	db     = diff -U10
 	dbb    = diff -U100
@@ -36,11 +42,14 @@
 	fixed  = rebase -i --autosquash
 	fixup  = commit --amend -C HEAD
 	last   = "!f() { B=\"$(git bn)\"; git log -p --reverse ${1:-${B:-HEAD}}@{1}..${1:-${B:-HEAD}}@{0}; }; f"
+	la     = log --graph --decorate --abbrev-commit --all
 	lf     = log --format=fuller --date=iso8601
 	lo     = log
 	lp     = log -p
 	k      = !gitk
 	mt     = mergetool
+	pack   = repack -d -l
+	packall= repack -A -d -l
 	pick   = cherry-pick
 	qs     = !echo staged: && git diff --cached --name-status && echo unstaged: && git diff --name-status
 	rb     = rebase
@@ -51,11 +60,17 @@
 	st     = status -uno
 	sta    = status
 	sw     = show
+	scp    = show -C10 --find-copies-harder
 	sww    = show --color-words
+	sl     = shortlog
+	sls    = shortlog -s
 	slc    = log HEAD@{1}..HEAD@{0} --reverse --stat -p
+	sr     = svn rebase
 	ts     = !git for-each-ref --format='%(taggerdate:raw)%(committerdate:raw) %(refname:short)' refs/tags | awk '{if (NF==3) print($1-(($2/100)*3600),$3)'\"";\""' else print($1)}' | sort -n
+	up     = add -u
 	wc     = whatchanged
 	wip    = commit -m wip
+	wup    = commit -a -m wip
 	wn     = log --reverse ORIG_HEAD..HEAD
 # Scott Chacon
 	lol    = log --graph --decorate --pretty=oneline --abbrev-commit

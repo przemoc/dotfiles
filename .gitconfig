@@ -81,3 +81,5 @@
 [pack]
 	window = 256
 	window-memory = 2g
+[push]
+	default = nothing

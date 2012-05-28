@@ -6,7 +6,8 @@
 [core]
 	autocrlf = false
 [sendemail]
-	smtpserver = /usr/bin/esmtp
+	smtpserver = /usr/bin/msmtp
+	suppresscc = self
 [alias]
 	for-each-ref = for-each-ref
 	rev-list = rev-list

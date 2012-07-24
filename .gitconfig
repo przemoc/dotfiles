@@ -65,6 +65,7 @@
 	sl     = shortlog
 	sls    = shortlog -s
 	slc    = log HEAD@{1}..HEAD@{0} --reverse --stat -p
+	sf     = svn fetch
 	sr     = svn rebase
 	ts     = !git for-each-ref --format='%(taggerdate:raw)%(committerdate:raw) %(refname:short)' refs/tags | awk '{if (NF==3) print($1-(($2/100)*3600),$3)'\"";\""' else print($1)}' | sort -n
 	up     = add -u

@@ -33,6 +33,7 @@
 	dcp    = diff -C10 --find-copies-harder
 	d      = diff --no-index
 	df     = diff
+	dp     = diff --patience
 	db     = diff -U10
 	dbb    = diff -U100
 	dw     = "!f() { GIT_PAGER='less -+$LESS -R' git diff --color-words \"$@\"; }; f"

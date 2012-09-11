@@ -1,3 +1,5 @@
+Xft.dpi: 96
+
 ! Use URxvt or Rxvt to set res for any *rxvt
 ! Use rxvt to set res only for rxvt
 ! Use urxvt to set res only for urxvt
@@ -10,7 +12,7 @@ Rxvt.saveLines:         10240
 ! below line is to "fix" colors in vim
 Rxvt.termName:          rxvt
 
-# do not scroll if going back
+! do not scroll if going back
 Rxvt.scrollTtyOutput:   false
 Rxvt.scrollWithBuffer:  true
 Rxvt.scrollTtyKeypress: true

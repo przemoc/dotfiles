@@ -47,7 +47,7 @@ editor_cmd = terminal .. " -e " .. editor
 
 -- custom
 terminal_latin2 = terminal .. " -e luit -encoding iso8859-2"
-terminal_bigger = terminal .. " -fn terminus-14"
+terminal_smaller = terminal .. " -fn terminus-12"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -283,7 +283,7 @@ globalkeys = awful.util.table.join(
 
     -- Standard program -- custom
     awful.key({ modkey, "Shift"   }, "Return", function () awful.util.spawn(terminal_latin2) end),
-    awful.key({ modkey, "Control" }, "Return", function () awful.util.spawn(terminal_bigger) end),
+    awful.key({ modkey, "Control" }, "Return", function () awful.util.spawn(terminal_smaller) end),
 
     -- Prompt
     awful.key({ modkey,           }, "r",     function () mypromptbox[mouse.screen]:run() end),

@@ -7,7 +7,7 @@ Xft.dpi: 96
 Rxvt.scrollBar:         false
 Rxvt.background:        black
 Rxvt.foreground:        grey
-Rxvt.font:              terminus-12
+Rxvt.font:              terminus-14
 Rxvt.saveLines:         10240
 ! below line is to "fix" colors in vim
 Rxvt.termName:          rxvt
@@ -28,6 +28,6 @@ Rxvt.color12:           rgb:5c/5c/ff
 XTerm*scrollBar:        false
 XTerm*background:       black
 XTerm*foreground:       grey
-XTerm*font:             terminus-12
+XTerm*font:             terminus-14
 XTerm*saveLines:        10240
 !XTerm*termName:         xterm

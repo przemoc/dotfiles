@@ -15,6 +15,9 @@
 	symbolic-ref = symbolic-ref
 	update-ref   = update-ref
 
+	d      = diff --no-index
+	g      = grep --no-index
+
 	alt    = !$(git var GIT_EDITOR) $(git rev-parse --git-dir)/objects/info/alternates
 	con    = !$(git var GIT_EDITOR) $(git rev-parse --git-dir)/config
 	exc    = !$(git var GIT_EDITOR) $(git rev-parse --git-dir)/info/exclude
@@ -30,9 +33,11 @@
 	cup    = commit -a
 	ca     = commit --amend
 	caup   = commit --amend -a
-	cad    = !"f() { GIT_COMMITTER_DATE=\"$(git log -1 --format=format:'%ai')\" git commit --amend \"$@\"; }; f"
-	cadc   = !"f() { DATE=\"$(git log -1 --format=format:'%ci')\"; GIT_COMMITTER_DATE=\"$DATE\" git commit --amend --date=\"$DATE\" \"$@\"; }; f"
-	cadn   = !"f() { DATE=\"$(date -R -d \"$*\")\"; GIT_COMMITTER_DATE=\"$DATE\" git commit --amend --date=\"$DATE\"; }; f"
+	cad    = !"f() { ADATE=\"$(git log -1 --pretty=format:'%ai')\"; GIT_COMMITTER_DATE=\"$ADATE\" git commit --amend \"$@\"; }; f"
+	cadc   = !"f() { CDATE=\"$(git log -1 --pretty=format:'%ci')\"; GIT_COMMITTER_DATE=\"$CDATE\" git commit --amend --date=\"$CDATE\" \"$@\"; }; f"
+	cadn   = !"f() { NDATE=\"$(date -R -d \"$*\")\"; GIT_COMMITTER_DATE=\"$NDATE\" git commit --amend --date=\"$NDATE\"; }; f"
+	cadna  = !"f() { NDATE=\"$(date -R -d \"$*\")\"; CDATE=\"$(git log -1 --pretty=format:'%ci')\"; GIT_COMMITTER_DATE=\"$CDATE\" git commit --amend --date=\"$NDATE\"; }; f"
+	cadnc  = !"f() { NDATE=\"$(date -R -d \"$*\")\"; GIT_COMMITTER_DATE=\"$NDATE\" git commit --amend; }; f"
 	fixup  = commit --amend -C HEAD
 	wip    = commit -m wip
 	wup    = commit -a -m wip
@@ -66,16 +71,16 @@
 	st     = status -uno
 	sta    = status
 
-	ch     = diff --cached
+	dl     = !GIT_PAGER='less -+$LESS -RS' git diff
 	dc     = diff --cached
-	d      = diff --no-index
+	dcw    = !GIT_PAGER='less -+$LESS -R' git diff --cached --color-words
 	dcp    = diff -C10 --find-copies-harder
 	df     = diff
 	dh     = diff --histogram
 	dp     = diff --patience
 	db     = diff -U10
 	dbb    = diff -U100
-	dw     = !"f() { GIT_PAGER='less -+$LESS -R' git diff --color-words \"$@\"; }; f"
+	dw     = !GIT_PAGER='less -+$LESS -R' git diff --color-words
 	wc     = whatchanged
 
 	last   = !"f() { B=\"$(git bn)\"; B=\"${B:-HEAD}\"; if [ \"$1\" != \"--\" ]; then B=\"${1:-$B}\"; if [ $# -gt 0 ]; then shift; fi; fi; git log -p --reverse $B@{1}..$B@{0} \"$@\"; }; f"
@@ -83,14 +88,19 @@
 	wn     = log --reverse ORIG_HEAD..HEAD
 
 	la     = log --graph --decorate --abbrev-commit --all
-	lf     = log --format=fuller --date=iso8601
+	lf     = log --pretty=fuller --date=iso8601
 	lo     = log
 	lp     = log -p
 	lpp    = log -p --patience
+	lod    = log --pretty=format:'%C(yellow)%h %Cred%ad %Creset%s%Cgreen%d' --date=iso
+	loda   = log --pretty=format:'%C(yellow)%h%x09%Cred%ad %Creset%s%Cgreen%d' --date=iso --all --graph
 	sl     = shortlog
 	sls    = shortlog -s
 
 	pick   = cherry-pick
+
+	gr     = grep
+	gru    = grep --untracked
 
 	sf     = svn fetch
 	sr     = svn rebase

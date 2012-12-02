@@ -86,6 +86,7 @@
 	last   = !"f() { B=\"$(git bn)\"; B=\"${B:-HEAD}\"; if [ \"$1\" != \"--\" ]; then B=\"${1:-$B}\"; if [ $# -gt 0 ]; then shift; fi; fi; git log -p --reverse $B@{1}..$B@{0} \"$@\"; }; f"
 	ldc    = log HEAD@{1}..HEAD@{0} --reverse --stat -p
 	wn     = log --reverse ORIG_HEAD..HEAD
+	cf     = !"f() { FROM=\"$(git rev-parse $1)\"; TO=\"$(git rev-parse $2)\"; git log --name-status --pretty=oneline $FROM..${TO:-HEAD} | sed '/^[A-Z]\\+\\t/!d;s///'; }; f"
 
 	la     = log --graph --decorate --abbrev-commit --all
 	lf     = log --pretty=fuller --date=iso8601

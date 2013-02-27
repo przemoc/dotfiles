@@ -28,6 +28,8 @@ let g:tex_flavor='latex'
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_GotoError=0
 
+au BufNewFile,BufRead *.tikz set filetype=tex
+
 " MC/FAR habits 
 map <F10> <ESC>:q<CR>
 imap <F10> <ESC>:q<CR>gi

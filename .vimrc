@@ -6,13 +6,13 @@ set undofile
 set undolevels=10000
 set undoreload=100000
 
-set history=10000
-
 set tabstop=4
 set shiftwidth=4
 syn on
 set nocompatible
 set bs=2
+
+set history=10000
 
 set modeline
 

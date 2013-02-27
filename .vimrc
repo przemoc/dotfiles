@@ -43,4 +43,4 @@ map gL L$g^
 colorscheme elflord
 
 " gvim
-set gfn=Terminus\ 8
+set gfn=Terminus

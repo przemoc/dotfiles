@@ -93,6 +93,7 @@
 	lo     = log
 	lp     = log -p
 	lpp    = log -p --patience
+	lpr    = log -p --reverse
 	lod    = log --pretty=format:'%C(yellow)%h %Cred%ad %Creset%s%Cgreen%d' --date=iso
 	loda   = log --pretty=format:'%C(yellow)%h%x09%Cred%ad %Creset%s%Cgreen%d' --date=iso --all --graph
 	sl     = shortlog

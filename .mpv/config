@@ -1,0 +1,9 @@
+af=scaletempo
+doubleclick-time=170
+sub-text-font-size=50
+sub-text-border-size=3
+#sub-text-shadow-offset=1
+#sub-text-shadow-color="#000000"
+## osd-fractions  # I don't want fractions in GUI and console at the same time
+#status-msg="${!aid==no:A}${!vid==no:V}: ${time-pos} / ${length} (${percent-pos}%) ${!vid==no:${!aid==no:A-V: ${avsync}}}"
+osd-status-msg="${time-pos/full} / ${length/full} (${percent-pos}%)"

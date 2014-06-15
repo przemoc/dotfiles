@@ -10,4 +10,4 @@ hggit = /usr/share/pyshared/hgext/git
 intree = 1
 
 [ui]
-username = Przemysław Pawełczyk <przemoc@gmail.com>
+username = Przemyslaw Pawelczyk <przemoc@gmail.com>

@@ -25,6 +25,7 @@
 	br     = branch -v
 	bv     = branch -vv
 	ba     = branch -av
+	bav    = branch -avv
 	bn     = !git symbolic-ref -q HEAD | sed s,^refs/heads/,,
 
 	up     = add -u
@@ -57,12 +58,19 @@
 	ri     = rebase -i
 	rskip  = rebase --skip
 
+	fe     = fetch
+	fa     = fetch --all
+	fap    = fetch --all -p
+	pf     = pull --ff-only
+
 	co     = checkout
 
 	pack   = repack -d -l
 	packall= repack -A -d -l
 	unreach= fsck --unreachable
 	cos    = count-objects
+	pcos   = !"f() { if [ -n \"$1\" ]; then cd \"$1\"; fi; printf \"%-60s %19s\\n\" \"$(pwd)\" \"$(git cos)\"; }; f"
+	pps    = !"f() { if [ -n \"$1\" ]; then cd \"$1\"; fi; printf \"%-60s %7s %s\\n\" \"$(pwd)\" \"$(git size | awk '{print$1}')\" \"$(ls -t $(git rev-parse --git-dir)/objects/pack/*.pack | xargs du -k -c | tac | awk 'NR==1{t=$1}NR!=1{printf\" %6.2f%%\",100*$1/t}')\"; }; f"
 	size   = !du -s $(git rev-parse --git-dir)
 
 	stats  = !"f() { git ls-files -z | xargs -0 -n1 -I@ sh -c \"git blame -wtCC '@' | sed 's,^[^(]\\+,,;s,[ \\t]\\+[0-9]\\+ +[0-9]\\+[^)]\\+,,;/^([^)]\\+)[ \\t]*[{};*\\/]*[ \\t]*\\r\\?$/d' | sed 's,).*,),'\" | sort | uniq -c; }; f"
@@ -95,6 +103,8 @@
 	lpp    = log -p --patience
 	lpr    = log -p --reverse
 	lod    = log --pretty=format:'%C(yellow)%h %Cred%ad %Creset%s%Cgreen%d' --date=iso
+	lodd   = log --pretty=format:'%C(yellow)%h %Cred%ad %Creset%s%Cgreen%d' --date=iso --date-order --graph
+	lodda  = log --pretty=format:'%C(yellow)%h %Cred%ad %Creset%s%Cgreen%d' --date=iso --author-date-order --graph
 	loda   = log --pretty=format:'%C(yellow)%h%x09%Cred%ad %Creset%s%Cgreen%d' --date=iso --all --graph
 	sl     = shortlog
 	sls    = shortlog -s
@@ -115,7 +125,12 @@
 
 # Scott Chacon
 	lol    = log --graph --decorate --pretty=oneline --abbrev-commit
+	lold   = log --graph --decorate --pretty=oneline --abbrev-commit --date-order
+	lolda  = log --graph --decorate --pretty=oneline --abbrev-commit --author-date-order
 	lola   = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	lolad  = log --graph --decorate --pretty=oneline --abbrev-commit --all --date-order
+	lolada = log --graph --decorate --pretty=oneline --abbrev-commit --all --author-date-order
+	lolahg = log --graph --decorate --pretty=oneline --abbrev-commit --all --date-order ^refs/notes/hg
 # Peter Collingbourne <peter@pcc.me.uk>
 	svnmu  = "!f() { git fetch $1 && git update-ref refs/remotes/git-svn $1/master && git svn fetch }; f"
 

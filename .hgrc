@@ -4,7 +4,9 @@ show = log -pr
 [extensions]
 hgext.bookmarks =
 hgext.convert =
+hgext.strip =
 hggit = /usr/share/pyshared/hgext/git
+mercurial_keyring =
 
 [git]
 intree = 1

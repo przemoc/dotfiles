@@ -137,5 +137,7 @@
 [pack]
 	window = 256
 	window-memory = 2g
+[pull]
+	ff = only
 [push]
 	default = nothing

@@ -141,3 +141,5 @@
 	ff = only
 [push]
 	default = nothing
+[remote-hg]
+	hg-git-compat = true

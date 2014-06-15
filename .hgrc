@@ -13,3 +13,5 @@ intree = 1
 
 [ui]
 username = Przemyslaw Pawelczyk <przemoc@gmail.com>
+
+%include ~/.hgrc.local

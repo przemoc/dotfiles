@@ -143,3 +143,5 @@
 	default = nothing
 [remote-hg]
 	hg-git-compat = true
+[include]
+	path = ~/.gitconfig.local

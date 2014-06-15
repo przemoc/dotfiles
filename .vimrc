@@ -1,7 +1,7 @@
-set backupdir=~/.vimbckp/
-set directory=~/.vimswap/
+set backupdir=~/.vim/bckp/
+set directory=~/.vim/swap/
 
-set undodir=~/.vimundo
+set undodir=~/.vim/undo
 set undofile
 set undolevels=10000
 set undoreload=100000

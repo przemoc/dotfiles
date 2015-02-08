@@ -130,7 +130,8 @@
 	lola   = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	lolad  = log --graph --decorate --pretty=oneline --abbrev-commit --all --date-order
 	lolada = log --graph --decorate --pretty=oneline --abbrev-commit --all --author-date-order
-	lolahg = log --graph --decorate --pretty=oneline --abbrev-commit --all --date-order ^refs/notes/hg
+	lolahg = log --graph --decorate --pretty=oneline --abbrev-commit --all ^refs/notes/hg
+	loladhg= log --graph --decorate --pretty=oneline --abbrev-commit --all --date-order ^refs/notes/hg
 # Peter Collingbourne <peter@pcc.me.uk>
 	svnmu  = "!f() { git fetch $1 && git update-ref refs/remotes/git-svn $1/master && git svn fetch }; f"
 

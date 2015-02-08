@@ -284,6 +284,7 @@ globalkeys = awful.util.table.join(
     -- Standard program -- custom
     awful.key({ modkey, "Shift"   }, "Return", function () awful.util.spawn(terminal_latin2) end),
     awful.key({ modkey, "Control" }, "Return", function () awful.util.spawn(terminal_smaller) end),
+    awful.key({ modkey, "Control" }, "l",      function () awful.util.spawn("xautolock -locknow") end),
 
     -- Prompt
     awful.key({ modkey,           }, "r",     function () mypromptbox[mouse.screen]:run() end),

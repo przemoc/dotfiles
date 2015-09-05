@@ -146,5 +146,7 @@
 	hg-git-compat = true
 [tag]
 	sort = v:refname
+[credential]
+	helper = cache
 [include]
 	path = ~/.gitconfig.local

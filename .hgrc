@@ -1,5 +1,6 @@
 [alias]
 show = log -pr
+shortlog = log --template '{node|short} | {date|isodatesec} | {desc|strip|firstline}\n'
 
 [extensions]
 hgext.bookmarks =

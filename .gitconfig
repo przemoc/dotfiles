@@ -108,6 +108,7 @@
 	loda   = log --pretty=format:'%C(yellow)%h%x09%Cred%ad %Creset%s%Cgreen%d' --date=iso --all --graph
 	sl     = shortlog
 	sls    = shortlog -s
+	datelog= log --abbrev=12 --pretty=format:'%h | %ad | %s' --date=iso
 
 	pick   = cherry-pick
 

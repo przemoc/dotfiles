@@ -4,6 +4,7 @@
 [color]
 	ui = true
 [core]
+	abbrev = 12
 	autocrlf = false
 	editor = vim
 [sendemail]

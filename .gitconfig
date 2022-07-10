@@ -151,6 +151,8 @@
 	hg-git-compat = true
 [tag]
 	sort = v:refname
+[transfer]
+	fsckObjects = yes
 [credential]
 	helper = cache
 [include]

@@ -39,6 +39,7 @@
 	caup   = commit --amend -a
 	cad    = !"f() { ADATE=\"$(git log -1 --pretty=format:'%ai')\"; GIT_COMMITTER_DATE=\"$ADATE\" git commit --amend \"$@\"; }; f"
 	cadc   = !"f() { CDATE=\"$(git log -1 --pretty=format:'%ci')\"; GIT_COMMITTER_DATE=\"$CDATE\" git commit --amend --date=\"$CDATE\" \"$@\"; }; f"
+	cadnow = !"f() { NDATE=\"$(date -Is)\"; GIT_COMMITTER_DATE=\"$NDATE\" git commit --amend --date=\"$NDATE\" --no-edit; }; f"
 	cadn   = !"f() { NDATE=\"$(date -R -d \"$*\")\"; GIT_COMMITTER_DATE=\"$NDATE\" git commit --amend --date=\"$NDATE\"; }; f"
 	cadna  = !"f() { NDATE=\"$(date -R -d \"$*\")\"; CDATE=\"$(git log -1 --pretty=format:'%ci')\"; GIT_COMMITTER_DATE=\"$CDATE\" git commit --amend --date=\"$NDATE\"; }; f"
 	cadnc  = !"f() { NDATE=\"$(date -R -d \"$*\")\"; GIT_COMMITTER_DATE=\"$NDATE\" git commit --amend; }; f"

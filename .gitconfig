@@ -5,6 +5,7 @@
 	ui = true
 [core]
 	autocrlf = false
+	editor = vim
 [sendemail]
 	smtpserver = /usr/bin/msmtp
 	suppresscc = self

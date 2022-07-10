@@ -10,6 +10,7 @@
 [sendemail]
 	smtpserver = /usr/bin/msmtp
 	suppresscc = self
+	chainReplyTo = no
 [alias]
 	for-each-ref = for-each-ref
 	rev-list     = rev-list

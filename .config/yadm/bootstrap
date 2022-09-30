@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo "Create ~/.vim/ directories"
+mkdir -p ~/.vim/{bckp,undo,swap}
